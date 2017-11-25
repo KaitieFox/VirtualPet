@@ -43,24 +43,51 @@ namespace VirtualPet
         //methods
         public void Feed()
         {
-            hunger -= 3;
-            thirst++;
-            waste++;
+            if (hunger > 5)
+            {
+                Console.WriteLine("Your animal is happy.");
+                hunger -= 3;
+                thirst++;
+                waste++;
+            }
+            else
+            {
+                Console.WriteLine("Your animal is already full");                
+            }            
         }
+
         public void Water()
         {
             thirst -= 2;
             waste++;
         }
+
         public void Potty()
         {
             waste = 0;
             hunger++;
         }
+
         public void Play()
         {
             boredom--;
+            tired++;
+            thirst++;
         }
+
+        public void Pet()
+        {
+            tired--;
+            if (tired > 3)
+            {
+                Console.WriteLine("Your pet is very happy");
+            }
+            else
+            {
+                Console.WriteLine("Your pet doesn't want your affection now.");
+            }
+        }
+
         public void Heal()
         {
             sickness = 0;
