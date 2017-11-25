@@ -10,13 +10,7 @@ namespace VirtualPet
     {
         //fields
         private string name;
-        private string animalType;
-        private int hunger;
-        private int thirst;
-        private int waste;
-        private int boredom;
-        private int sickness;
-        private int tired;
+        private string animalType;        
 
         //properties
         public string Name { get; set; }
@@ -41,36 +35,40 @@ namespace VirtualPet
         }
 
         //methods
-        public int Feed()
-        {            
-                Hunger -= 3;
+        public void Feed()
+        {
+            Hunger -= 3;
             Thirst++;
-            Tired++;                
-            return Hunger;                    
+            Tired++;
         }
 
-        public int Water()
+        public void Water()
         {
-            thirst -= 2;            
-            return thirst;
+            Thirst -= 2;
+            Waste++;
+            Hunger++;
+            
         }
 
-        public int Potty()
+        public void Potty()
         {
-            waste = 0;            
-            return waste;
+            Waste = 0;
+            Hunger++;
+            
         }
 
-        public int Play()
+        public void Play()
         {
-            boredom--;            
-            return boredom;
+            Boredom-=2;
+            Hunger++;
+            Thirst += 2;
+            
         }
 
-        public int Pet()
+        public void Pet()
         {
-            tired--;
-            if (tired > 3)
+            Tired--;
+            if (Tired > 3)
             {
                 Console.WriteLine("Your pet is very happy");
             }
@@ -78,13 +76,13 @@ namespace VirtualPet
             {
                 Console.WriteLine("Your pet doesn't want your affection now.");
             }
-            return tired;
+            
         }
 
         public int Heal()
         {
-            sickness = 0;
-            return sickness;
+            Sickness = 0;
+            return Sickness;
         }
 
 
