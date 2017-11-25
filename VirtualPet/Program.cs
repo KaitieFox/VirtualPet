@@ -79,12 +79,24 @@ namespace VirtualPet
                 {
                     case 1:
                         yourPet.Feed();
+                        if (yourPet.Hunger > 5)
+                        {
+                            Console.WriteLine("Your pet is still hungry!");
+                        }
                         break;
                     case 2:
                         yourPet.Water();
+                        if (yourPet.Thirst > 5)
+                        {
+                            Console.WriteLine("Your pet is still thirsty!");
+                        }
                         break;
                     case 3:
                         yourPet.Potty();
+                        if (yourPet.Waste == 0)
+                        {
+                            Console.WriteLine("Your pet is relieved.");
+                        }
                         break;
                     case 4:
                         yourPet.Play();
@@ -103,7 +115,20 @@ namespace VirtualPet
 
 
                 //statements about the stats of your pet
-
+                //hunger
+                if (yourPet.Hunger < 5)
+                {
+                    Console.WriteLine("Your " + animalType + " doesn't need food.");
+                }
+                else if (yourPet.Hunger > 5 && yourPet.Hunger < 7)
+                {
+                    Console.WriteLine("Your " + animalType + " is quite hungry!");
+                }
+                else if (yourPet.Hunger > 7)
+                {
+                    Console.WriteLine("Your " + animalType + " is dying of hunger!");
+                }
+                
 
 
 
