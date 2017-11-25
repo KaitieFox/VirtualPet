@@ -60,18 +60,29 @@ namespace VirtualPet
             yourPet.Waste = stat.Next(1, 10);
             yourPet.Boredom = stat.Next(1, 10);
             yourPet.Tired = stat.Next(1, 10);
-            yourPet.Sickness = stat.Next(1, 10);                               
+            yourPet.Sickness = stat.Next(1, 10);
 
-                Console.WriteLine("I'd like to...");
-                Console.WriteLine("1. Feed " + name + ".");
-                Console.WriteLine("2. Give " + name + " water.");
-                Console.WriteLine("3. Take " + name + " outside to go potty.");
-                Console.WriteLine("4. Play with " + name + ".");
-                Console.WriteLine("5. Pet " + name + ".");
-                Console.WriteLine("6. Heal " + name + ".");
+            //initial stats
+            Console.WriteLine("Hunger: " + yourPet.Hunger);
+            Console.WriteLine("Thirst: " + yourPet.Thirst);
+            Console.WriteLine("Waste: " + yourPet.Waste);
+            Console.WriteLine("Boredom: " + yourPet.Boredom);
+            Console.WriteLine("Tired: " + yourPet.Tired);
+            Console.WriteLine("Sickness: " + yourPet.Sickness);
+
+            //initial action items
+            Console.WriteLine("I'd like to...");
+            Console.WriteLine("1. Feed " + name + ".");
+            Console.WriteLine("2. Give " + name + " water.");
+            Console.WriteLine("3. Take " + name + " outside to go potty.");
+            Console.WriteLine("4. Play with " + name + ".");
+            Console.WriteLine("5. Pet " + name + ".");
+            Console.WriteLine("6. Heal " + name + ".");
             Console.WriteLine("7. Abandon my pet.");
 
-                int userChoice = int.Parse(Console.ReadLine());
+            //initial user input            
+            int userChoice = int.Parse(Console.ReadLine());
+
             do
             {
 
@@ -111,36 +122,28 @@ namespace VirtualPet
                         Console.WriteLine("Next time please consider the responsibility of a pet before committing to one.");
                         Environment.Exit(0);
                         break;
-                }
+                }                           
+              
+                //stats about the animal
+                Console.WriteLine("Hunger: " + yourPet.Hunger);
+                Console.WriteLine("Thirst: " + yourPet.Thirst);
+                Console.WriteLine("Waste: " + yourPet.Waste);
+                Console.WriteLine("Boredom: " + yourPet.Boredom);
+                Console.WriteLine("Tired: " + yourPet.Tired);
+                Console.WriteLine("Sickness: " + yourPet.Sickness);
 
 
-                //statements about the stats of your pet
-                //hunger
-                if (yourPet.Hunger < 5)
-                {
-                    Console.WriteLine("Your " + animalType + " doesn't need food.");
-                }
-                else if (yourPet.Hunger > 5 && yourPet.Hunger < 7)
-                {
-                    Console.WriteLine("Your " + animalType + " is quite hungry!");
-                }
-                else if (yourPet.Hunger > 7)
-                {
-                    Console.WriteLine("Your " + animalType + " is dying of hunger!");
-                }
-                
-
-
-
+                //action items
                 Console.WriteLine("I'd like to...");
                 Console.WriteLine("1. Feed " + name + ".");
-                Console.WriteLine("2. Give " + name + "water.");
-                Console.WriteLine("3. Take " + name + "outside to go potty.");
+                Console.WriteLine("2. Give " + name + " water.");
+                Console.WriteLine("3. Take " + name + " outside to go potty.");
                 Console.WriteLine("4. Play with " + name + ".");
                 Console.WriteLine("5. Pet " + name + ".");
                 Console.WriteLine("6. Heal " + name + ".");
                 Console.WriteLine("7. Abandon my pet.");
 
+                //user input
                 userChoice = int.Parse(Console.ReadLine());
 
             }

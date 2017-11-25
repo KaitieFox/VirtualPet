@@ -41,41 +41,33 @@ namespace VirtualPet
         }
 
         //methods
-        public void Feed()
-        {
-            if (hunger > 5)
-            {
-                Console.WriteLine("Your animal is happy.");
-                hunger -= 3;
-                thirst++;
-                waste++;
-            }
-            else
-            {
-                Console.WriteLine("Your animal is already full");                
-            }            
+        public int Feed()
+        {            
+                Hunger -= 3;
+            Thirst++;
+            Tired++;                
+            return Hunger;                    
         }
 
-        public void Water()
+        public int Water()
         {
-            thirst -= 2;
-            waste++;
+            thirst -= 2;            
+            return thirst;
         }
 
-        public void Potty()
+        public int Potty()
         {
-            waste = 0;
-            hunger++;
+            waste = 0;            
+            return waste;
         }
 
-        public void Play()
+        public int Play()
         {
-            boredom--;
-            tired++;
-            thirst++;
+            boredom--;            
+            return boredom;
         }
 
-        public void Pet()
+        public int Pet()
         {
             tired--;
             if (tired > 3)
@@ -86,11 +78,13 @@ namespace VirtualPet
             {
                 Console.WriteLine("Your pet doesn't want your affection now.");
             }
+            return tired;
         }
 
-        public void Heal()
+        public int Heal()
         {
             sickness = 0;
+            return sickness;
         }
 
 
