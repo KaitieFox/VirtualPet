@@ -63,12 +63,10 @@ namespace VirtualPet
             yourPet.Sickness = stat.Next(1, 10);
 
             //initial stats
-            Console.WriteLine("Hunger: " + yourPet.Hunger);
-            Console.WriteLine("Thirst: " + yourPet.Thirst);
-            Console.WriteLine("Waste: " + yourPet.Waste);
-            Console.WriteLine("Boredom: " + yourPet.Boredom);
-            Console.WriteLine("Tired: " + yourPet.Tired);
-            Console.WriteLine("Sickness: " + yourPet.Sickness);
+            
+
+            Console.WriteLine();
+            System.Threading.Thread.Sleep(100);
 
             //initial action items
             Console.WriteLine("I'd like to...");
@@ -78,7 +76,8 @@ namespace VirtualPet
             Console.WriteLine("4. Play with " + name + ".");
             Console.WriteLine("5. Pet " + name + ".");
             Console.WriteLine("6. Heal " + name + ".");
-            Console.WriteLine("7. Abandon my pet.");
+            Console.WriteLine("7. See how my pet is doing.");
+            Console.WriteLine("8. Abandon my pet.");
 
             //initial user input            
             int userChoice = int.Parse(Console.ReadLine());
@@ -94,12 +93,20 @@ namespace VirtualPet
                         {
                             Console.WriteLine("Your pet is still hungry!");
                         }
+                        else if (yourPet.Hunger < 0)
+                        {
+                            yourPet.Hunger = 0;
+                        }
                         break;
                     case 2:
                         yourPet.Water();
                         if (yourPet.Thirst > 5)
                         {
                             Console.WriteLine("Your pet is still thirsty!");
+                        }
+                        else if (yourPet.Thirst < 0)
+                        {
+                            yourPet.Thirst = 0;
                         }
                         break;
                     case 3:
@@ -108,30 +115,41 @@ namespace VirtualPet
                         {
                             Console.WriteLine("Your pet is relieved.");
                         }
+                        
                         break;
                     case 4:
                         yourPet.Play();
+                        if (yourPet.Boredom < 0)
+                        {
+                            yourPet.Boredom = 0;
+                        }
+
                         break;
                     case 5:
                         yourPet.Pet();
+                        if (yourPet.Tired < 0)
+                        {
+                            yourPet.Tired = 0;
+                        }
                         break;
                     case 6:
                         yourPet.Heal();
                         break;
+
                     case 7:
+                        yourPet.Stats();
+                        break;
+
+                    case 8:
                         Console.WriteLine("Next time please consider the responsibility of a pet before committing to one.");
                         Environment.Exit(0);
                         break;
                 }                           
               
-                //stats about the animal
-                Console.WriteLine("Hunger: " + yourPet.Hunger);
-                Console.WriteLine("Thirst: " + yourPet.Thirst);
-                Console.WriteLine("Waste: " + yourPet.Waste);
-                Console.WriteLine("Boredom: " + yourPet.Boredom);
-                Console.WriteLine("Tired: " + yourPet.Tired);
-                Console.WriteLine("Sickness: " + yourPet.Sickness);
+                
 
+                Console.WriteLine();
+                System.Threading.Thread.Sleep(100);
 
                 //action items
                 Console.WriteLine("I'd like to...");

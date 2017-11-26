@@ -85,6 +85,15 @@ namespace VirtualPet
             return Sickness;
         }
 
+        public void Stats()
+        {
+            Console.WriteLine("Hunger: " + Hunger);
+            Console.WriteLine("Thirst: " + Thirst);
+            Console.WriteLine("Waste: " + Waste);
+            Console.WriteLine("Boredom: " + Boredom);
+            Console.WriteLine("Tired: " + Tired);
+            Console.WriteLine("Sickness: " + Sickness);
+        }
 
     }
 }
