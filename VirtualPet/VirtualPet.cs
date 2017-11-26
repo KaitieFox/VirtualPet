@@ -95,5 +95,37 @@ namespace VirtualPet
             Console.WriteLine("Sickness: " + Sickness);
         }
 
+        public void Tick()
+        {
+            Random random = new Random();
+            int tick = random.Next(1, 10);
+
+            if (tick<3)
+            {
+                Hunger++;
+                Boredom += 2;
+                Tired++;
+            }
+            else if (tick>3 && tick<7)
+            {
+                Console.WriteLine("Your pet loves you probably.\n");
+            }
+            else if(tick>7)
+            {
+                Thirst += 2;
+                Tired++;
+                Sickness += 2;
+            }
+            else
+            {
+                Console.WriteLine("Your pet has ascended.");
+                Environment.Exit(0);
+            }
+        }
+
+
+
+
+
     }
 }

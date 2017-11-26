@@ -14,28 +14,7 @@ namespace VirtualPet
             Console.WriteLine("Welcome to the Pet Shop!");
             Console.WriteLine("We have a variety of pets here to take care of.");
 
-            //Console.WriteLine("What would you like to do?");
-            //Console.WriteLine("1. 'I'd like to have a look around.'");
-            //Console.WriteLine("2. 'I see the animal I want.'");
-
-            //int firstChoice = int.Parse(Console.ReadLine());
-
-            //if (firstChoice == 1)
-            //{
-            //    Console.WriteLine("Take your time.");
-            //}
-            //else if (firstChoice == 2)
-            //{
-
-            //}
-            //else
-            //{
-
-            //}
-
-            //....well, I'll figure it out
-
-            //you now have a pet
+            System.Threading.Thread.Sleep(1000);
 
             Console.WriteLine("I see you've made a decision!");
 
@@ -63,7 +42,7 @@ namespace VirtualPet
             yourPet.Sickness = stat.Next(1, 10);
 
             //initial stats
-            
+            yourPet.Stats();
 
             Console.WriteLine();
             System.Threading.Thread.Sleep(100);
@@ -77,7 +56,8 @@ namespace VirtualPet
             Console.WriteLine("5. Pet " + name + ".");
             Console.WriteLine("6. Heal " + name + ".");
             Console.WriteLine("7. See how my pet is doing.");
-            Console.WriteLine("8. Abandon my pet.");
+            Console.WriteLine("8. Do nothing.");
+            Console.WriteLine("9. Abandon my pet.");
 
             //initial user input            
             int userChoice = int.Parse(Console.ReadLine());
@@ -98,6 +78,7 @@ namespace VirtualPet
                             yourPet.Hunger = 0;
                         }
                         break;
+
                     case 2:
                         yourPet.Water();
                         if (yourPet.Thirst > 5)
@@ -109,6 +90,7 @@ namespace VirtualPet
                             yourPet.Thirst = 0;
                         }
                         break;
+
                     case 3:
                         yourPet.Potty();
                         if (yourPet.Waste == 0)
@@ -117,6 +99,7 @@ namespace VirtualPet
                         }
                         
                         break;
+
                     case 4:
                         yourPet.Play();
                         if (yourPet.Boredom < 0)
@@ -125,6 +108,7 @@ namespace VirtualPet
                         }
 
                         break;
+
                     case 5:
                         yourPet.Pet();
                         if (yourPet.Tired < 0)
@@ -132,6 +116,7 @@ namespace VirtualPet
                             yourPet.Tired = 0;
                         }
                         break;
+
                     case 6:
                         yourPet.Heal();
                         break;
@@ -141,8 +126,16 @@ namespace VirtualPet
                         break;
 
                     case 8:
+                        yourPet.Tick();
+                        break;
+
+                    case 9:
                         Console.WriteLine("Next time please consider the responsibility of a pet before committing to one.");
                         Environment.Exit(0);
+                        break;
+
+                    default:
+                        Console.WriteLine("Careful how you handle your pet!");
                         break;
                 }                           
               
@@ -150,6 +143,8 @@ namespace VirtualPet
 
                 Console.WriteLine();
                 System.Threading.Thread.Sleep(100);
+
+                
 
                 //action items
                 Console.WriteLine("I'd like to...");
@@ -159,13 +154,15 @@ namespace VirtualPet
                 Console.WriteLine("4. Play with " + name + ".");
                 Console.WriteLine("5. Pet " + name + ".");
                 Console.WriteLine("6. Heal " + name + ".");
-                Console.WriteLine("7. Abandon my pet.");
+                Console.WriteLine("7. See how my pet is doing.");
+                Console.WriteLine("8. Do nothing.");
+                Console.WriteLine("9. Abandon my pet.");
 
                 //user input
                 userChoice = int.Parse(Console.ReadLine());
 
             }
-            while (userChoice < 8);
+            while (userChoice < 9);
 
         }
     }
